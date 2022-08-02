@@ -1,18 +1,7 @@
 import React, { Fragment } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-
-const promisifyGeoLocationAPI = () => {
-  return new Promise((resolve, reject) => {
-    return Geolocation.getCurrentPosition(
-      (success) => {
-        return resolve(success);
-      },
-      (error) => {
-        return reject(error);
-      }
-    );
-  });
-};
+import { RestCountriesAPI_Url } from '../../helpers/config';
+import { getJson } from '../../helpers/customFn';
 
 const RestCountriesAPI = () => {
   return (
@@ -20,7 +9,7 @@ const RestCountriesAPI = () => {
       <Container>
         <Row>
           <Col>
-            <Button color="primary">Click Me</Button>
+            <Button color="dark">Get Your Location</Button>
             <p>RestCountriesAPI...</p>
           </Col>
         </Row>

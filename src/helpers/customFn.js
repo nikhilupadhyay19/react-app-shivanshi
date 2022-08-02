@@ -20,3 +20,16 @@ export const getJson = async (url, errMsg = 'Something went wrong...') => {
     throw err;
   }
 };
+
+export const promisifyGeoLocationAPI = () => {
+  return new Promise((resolve, reject) => {
+    return Geolocation.getCurrentPosition(
+      (success) => {
+        return resolve(success);
+      },
+      (error) => {
+        return reject(error);
+      }
+    );
+  });
+};
