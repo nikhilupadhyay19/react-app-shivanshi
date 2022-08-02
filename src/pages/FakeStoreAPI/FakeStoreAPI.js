@@ -60,16 +60,18 @@ const FakeStoreAPI = () => {
             </ButtonGroup>
           </Col>
           <Col lg={12}>
-            {error ? (
-              <p>{error}</p>
-            ) : !isLoaded ? (
-              <p color="primary" className="text-center v-middle">
-                <Spinner color="dark">Loading...</Spinner>
-                <span>Please wait while loading...</span>
-              </p>
-            ) : (
-              <p>{JSON.stringify(product)}</p>
-            )}
+            <div className="fixed-height">
+              {error ? (
+                <p>{error}</p>
+              ) : !isLoaded ? (
+                <p color="primary" className="text-center v-middle">
+                  <Spinner color="dark">Loading...</Spinner>
+                  <span>Please wait while loading...</span>
+                </p>
+              ) : (
+                <p>{JSON.stringify(product)}</p>
+              )}
+            </div>
           </Col>
         </Row>
       </Container>
