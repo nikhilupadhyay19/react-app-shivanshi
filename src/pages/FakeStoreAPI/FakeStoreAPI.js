@@ -61,12 +61,12 @@ const FakeStoreAPI = () => {
           </Col>
           <Col lg={12}>
             {error ? (
-              <Alert color="danger">{error}</Alert>
+              <p>{error}</p>
             ) : !isLoaded ? (
-              <Alert color="primary" className="text-center v-middle">
+              <p color="primary" className="text-center v-middle">
                 <Spinner color="dark">Loading...</Spinner>
                 <span>Please wait while loading...</span>
-              </Alert>
+              </p>
             ) : (
               <p>{JSON.stringify(product)}</p>
             )}

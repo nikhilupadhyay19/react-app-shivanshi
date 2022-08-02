@@ -30,45 +30,53 @@ const JsonPlaceholderAPI = () => {
     })();
   }, [pram]);
 
-  <Fragment>
-    <Container>
-      <Row>
-        <Col lg={12}>
-          <ButtonGroup>
-            <Button>
-              Posts <i className="icofont icofont-rounded-double-left"></i>
-            </Button>
-            <Button>
-              Comments <i className="icofont icofont-rounded-double-right"></i>
-            </Button>
-            <Button>
-              Albums <i className="icofont icofont-rounded-double-right"></i>
-            </Button>
-            <Button>
-              Photos <i className="icofont icofont-rounded-double-right"></i>
-            </Button>
-            <Button>
-              Todos <i className="icofont icofont-rounded-double-right"></i>
-            </Button>
-            <Button>
-              Users <i className="icofont icofont-rounded-double-right"></i>
-            </Button>
-          </ButtonGroup>
-        </Col>
-        <Col lg={12}>
-          {error ? (
-            <Alert color="danger">{error}</Alert>
-          ) : !isLoaded ? (
-            <Alert color="primary" className="text-center v-middle">
-              <Spinner color="dark">Loading...</Spinner>
-              <span>Please wait while loading...</span>
-            </Alert>
-          ) : (
-            <p>{JSON.stringify(apiData)}</p>
-          )}
-        </Col>
-      </Row>
-    </Container>
-  </Fragment>;
+  const chnagePramHandler = (el) => {
+    setPram(el.target.value);
+    setLoaded(false);
+  };
+
+  return (
+    <Fragment>
+      <Container>
+        <Row>
+          <Col lg={12}>
+            <ButtonGroup>
+              <Button onClick={chnagePramHandler} value="posts">
+                Posts <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+              <Button onClick={chnagePramHandler} value="comments">
+                Comments{' '}
+                <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+              <Button onClick={chnagePramHandler} value="albums">
+                Albums <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+              <Button onClick={chnagePramHandler} value="photos">
+                Photos <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+              <Button onClick={chnagePramHandler} value="todos">
+                Todos <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+              <Button onClick={chnagePramHandler} value="users">
+                Users <i className="icofont icofont-rounded-double-right"></i>
+              </Button>
+            </ButtonGroup>
+          </Col>
+          <Col lg={12}>
+            {error ? (
+              <p>{error}</p>
+            ) : !isLoaded ? (
+              <p color="primary" className="text-center v-middle">
+                <Spinner color="dark">Loading...</Spinner>
+                <span>Please wait while loading...</span>
+              </p>
+            ) : (
+              <p>{JSON.stringify(apiData)}</p>
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </Fragment>
+  );
 };
 export default JsonPlaceholderAPI;
