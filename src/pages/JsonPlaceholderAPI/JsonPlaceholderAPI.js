@@ -1,13 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import {
-  ButtonGroup,
-  Button,
-  Container,
-  Row,
-  Col,
-  Alert,
-  Spinner,
-} from 'reactstrap';
+import { ButtonGroup, Button, Container, Row, Col, Spinner } from 'reactstrap';
 import { JsonPlaceholderAPI_Url } from '../../helpers/config';
 import { getJson } from '../../helpers/customFn';
 
